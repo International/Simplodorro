@@ -24,7 +24,7 @@ click_listener = ->
   time -= 1
   if time < 0
     pomodorro_running = false
-    notif = webkitNotifications.createNotification("icon.png", "Pomodorro finished", "Congrats!")
+    notif = webkitNotifications.createNotification("icon_16.png", "Pomodorro finished", "Congrats!")
     notif.show()
   else
     window.setTimeout(click_listener, 1000)

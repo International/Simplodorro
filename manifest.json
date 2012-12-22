@@ -1,12 +1,17 @@
 {
-  "name": "A very simple pomodoro timer",
+  "name": "Simplodorro",
   "version": "0.0.0.1",
   "manifest_version": 2,
   "description": "Since my phone broke, I needed something to help me time my pomidori, and I also wanted to learn about Chrome extensions :).",
   "browser_action": {
-    "default_icon": "icon.png"
+    "default_icon": "icon_16.png"
   },
-  "web_accessible_resources" : [ "icon.png" ],
+  "icons" : {
+    "16"  : "icon_16.png",
+    "48"  : "icon_48.png",
+    "128" : "icon_128.png"
+  },
+  "web_accessible_resources" : [ "icon_16.png" ],
   "permissions": [ "notifications" ],
   "background": {
     "scripts" : ["background.js"]
