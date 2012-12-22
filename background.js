@@ -15,7 +15,7 @@
 
   display_time = function(seconds) {
     var time_to_show;
-    time_to_show = seconds / 60;
+    time_to_show = seconds === 0 ? "OK" : seconds / 60;
     return chrome.browserAction.setBadgeText({
       text: "" + time_to_show
     });

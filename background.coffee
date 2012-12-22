@@ -8,7 +8,7 @@ start_pomodorro = ->
   time = default_minutes * 60
 
 display_time = (seconds) ->
-  time_to_show = seconds / 60
+  time_to_show = if seconds == 0 then "OK" else seconds / 60
   chrome.browserAction.setBadgeText({text: "#{time_to_show}"})
 
 should_display_time = (seconds) ->
