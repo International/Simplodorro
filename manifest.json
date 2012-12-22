@@ -1,6 +1,6 @@
 {
   "name": "A very simple pomodoro timer",
-  "version": "0.1",
+  "version": "0.0.0.1",
   "manifest_version": 2,
   "description": "Since my phone broke, I needed something to help me time my pomidori, and I also wanted to learn about Chrome extensions :).",
   "browser_action": {
