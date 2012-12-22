@@ -4,7 +4,7 @@
 
   pomodorro_running = false;
 
-  default_minutes = 25;
+  default_minutes = 1;
 
   time = default_minutes * 60;
 
@@ -40,7 +40,7 @@
     time -= 1;
     if (time < 0) {
       pomodorro_running = false;
-      notif = webkitNotifications.createNotification(null, "Pomodorro finished", "Congrats!");
+      notif = webkitNotifications.createNotification("icon.png", "Pomodorro finished", "Congrats!");
       return notif.show();
     } else {
       return window.setTimeout(click_listener, 1000);
