@@ -1,7 +1,7 @@
 {
   "name": "Simplodorro",
-  "version": "0.0.0.1",
-  "manifest_version": 2,
+  "version": "0.0.0.2",
+  "manifest_version": 3,
   "description": "Since my phone broke, I needed something to help me time my pomidori, and I also wanted to learn about Chrome extensions :).",
   "browser_action": {
     "default_icon": "icon_16.png"
