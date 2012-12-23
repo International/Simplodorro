@@ -1,5 +1,8 @@
 pomodorro_running = false
 
+set_text = (text) ->
+  chrome.browserAction.setBadgeText({text: "#{text}"})
+
 default_minutes = 25
 time = default_minutes * 60
 
@@ -9,7 +12,7 @@ start_pomodorro = ->
 
 display_time = (seconds) ->
   time_to_show = if seconds == 0 then "OK" else seconds / 60
-  chrome.browserAction.setBadgeText({text: "#{time_to_show}"})
+  set_text(time_to_show)
 
 should_display_time = (seconds) ->
   (seconds % 60) == 0
@@ -17,9 +20,7 @@ should_display_time = (seconds) ->
 handle_display_time = (seconds) ->
   display_time(seconds) if should_display_time(seconds)
 
-click_listener = ->
-  if not pomodorro_running
-    start_pomodorro()
+schedule_start = ->
   handle_display_time(time)
   time -= 1
   if time < 0
@@ -27,6 +28,12 @@ click_listener = ->
     notif = webkitNotifications.createNotification("icon_16.png", "Pomodorro finished", "Congrats!")
     notif.show()
   else
-    window.setTimeout(click_listener, 1000)
+    window.setTimeout(schedule_start, 1000)
 
+click_listener = ->
+  if not pomodorro_running
+    start_pomodorro()
+    schedule_start()
+
+set_text("")
 chrome.browserAction.onClicked.addListener(click_listener)
